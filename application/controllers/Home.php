@@ -1,11 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-    //public $data;
-
-    public function index(){
-        $this->main();
-    }
 
     public function main(){
         $this->load->library('pagination');
@@ -15,10 +10,10 @@ class Home extends CI_Controller {
         //get data to insert in the database
         $this->getData();
 
+        //value to show per page in pagination
         $per_page = 3;
 
         $config['base_url'] = base_url('main');
-        //$config['first_url'] = base_url('main/1');
         $config['per_page'] = $per_page;
         $config['total_rows'] = $this->contacts->countRows();
 
@@ -30,6 +25,7 @@ class Home extends CI_Controller {
 
     }
 
+    //get data from url to insert in the database
     public function getData(){
         $data = file_get_contents('http://www.mocky.io/v2/581335f71000004204abaf83');
         $obj = json_decode($data,true);

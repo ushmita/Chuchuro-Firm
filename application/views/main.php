@@ -50,6 +50,7 @@
 
           <tbody>
 
+          <!-- loop for diaplaying the data from database in the table -->
           <?php foreach ($query as $row){?>
           <tr>
             <td><?php echo $row->name; ?></td>
